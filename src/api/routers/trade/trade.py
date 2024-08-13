@@ -1,6 +1,7 @@
 from typing import Sequence
 
 from fastapi import APIRouter, Depends, HTTPException
+from fastapi_cache.decorator import cache
 
 from src.api.routers.trade.handle import Handle
 from src.models.trade import SpimexTradingResults
@@ -18,6 +19,7 @@ handle = Handle()
 
 
 @router.get("/all_trades")
+@cache()
 async def get_all_trades(limit: int,
                          uow: UnitOfWork = Depends(UnitOfWork)
                          ) -> TradingResultWrapper:
@@ -29,6 +31,7 @@ async def get_all_trades(limit: int,
 
 
 @router.get("/last_trading_dates")
+@cache()
 async def get_last_trading_dates(limit: int,
                                  uow: UnitOfWork = Depends(UnitOfWork)
                                  ) -> TradingResultDateWrapper:
@@ -40,6 +43,7 @@ async def get_last_trading_dates(limit: int,
 
 
 @router.get('/trading_results')
+@cache()
 async def get_trading_results(oil_id: str,
                               # delivery_type_id: str,
                               # delivery_basis_id: str,
@@ -53,6 +57,7 @@ async def get_trading_results(oil_id: str,
 
 
 @router.get('/dynamics')
+@cache()
 async def get_dynamics(oil_id: str,
                        #delivery_type_id: str,
                        #delivery_basis_id:

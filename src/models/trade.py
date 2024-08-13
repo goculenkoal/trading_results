@@ -1,16 +1,14 @@
 from datetime import datetime
 
-from pydantic import BaseModel
 from sqlalchemy import DateTime, TIMESTAMP, func
-from sqlalchemy.orm import Mapped, mapped_column, declarative_base
+from sqlalchemy.orm import Mapped, mapped_column
 
-Base = declarative_base()
+from src.models.base import BaseModel
 
 
-class SpimexTradingResults(Base):
+class SpimexTradingResults(BaseModel):
     __tablename__ = 'spimex_trading_results'
 
-    id: Mapped[int] = mapped_column(autoincrement=True, primary_key=True)
     exchange_product_id: Mapped[str]
     exchange_product_name: Mapped[str]
     oil_id: Mapped[str]

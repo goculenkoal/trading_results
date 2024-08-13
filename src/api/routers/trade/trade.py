@@ -1,21 +1,15 @@
-from datetime import datetime
 from typing import Sequence
 
 from fastapi import APIRouter, Depends
-from sqlalchemy.ext.asyncio import AsyncSession
 
-from database import async_sessionmaker
 from src.services.trading_results_service import TradingResults
-from src.repositories.spimex import SpimexRepository
 from src.schemas.schemas import TradingResultSchema, TradingResultDateSchema
-from src.models.models import SpimexTradingResults
 from src.utils.unit_of_work import UnitOfWork
 
 router = APIRouter(
-    prefix='/operations',
-    tags=['Operation']
+    prefix='/trades',
+    tags=['Trade']
 )
-
 
 
 @router.get("/all_trades")
@@ -32,6 +26,8 @@ async def get_last_trading_dates(limit: int,
                                  uow: UnitOfWork = Depends(UnitOfWork)
                                  ) -> Sequence[TradingResultDateSchema]:
     dates = await TradingResults().get_by_query_dates(uow=uow, limit=limit)
+
+
 
     return dates
 

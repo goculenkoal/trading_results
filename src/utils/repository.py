@@ -1,13 +1,10 @@
 from abc import ABC, abstractmethod
 from collections.abc import Sequence
-from datetime import datetime
-from pyexpat import model
 from typing import Any, Never
 
-from sqlalchemy import select, Result
+from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from database import async_session_maker
 from src.schemas.schemas import TradingResultDateSchema
 
 

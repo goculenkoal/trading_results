@@ -1,10 +1,19 @@
 from datetime import datetime
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict
 
 
-class TradingResultSchema(BaseModel):
+class TradingResultDateSchema(BaseModel):
     model_config = ConfigDict(from_attributes=True)
+
+    date: datetime
+
+    # def formatted_date(self):
+    #     """Возвращает дату в стандартизированном формате."""
+    #     return self.date.strftime("%Y-%m-%d")
+
+
+class TradingResultSchema(TradingResultDateSchema):
 
     exchange_product_id: str
     exchange_product_name: str
@@ -15,11 +24,4 @@ class TradingResultSchema(BaseModel):
     volume: int
     total: int
     count: int
-    date: datetime
-
-
-class TradingResultDateSchema(BaseModel):
-    model_config = ConfigDict(from_attributes=True)
-
-    date: datetime
 

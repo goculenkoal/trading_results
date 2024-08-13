@@ -1,5 +1,6 @@
 from fastapi import FastAPI
-from src.operations.router import router as router_operation
+
+from src.api.routers.trade.trade import router
 
 app = FastAPI(
     title='Trading Results'
@@ -11,4 +12,4 @@ def hello():
     return "Hello world"
 
 
-app.include_router(router_operation)
+app.include_router(router)

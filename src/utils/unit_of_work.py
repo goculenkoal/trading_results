@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from database import async_session_maker
+from src.databases.database import async_session_maker
 from src.repositories.spimex import SpimexRepository
 
 

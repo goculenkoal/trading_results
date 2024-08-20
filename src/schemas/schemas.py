@@ -8,13 +8,8 @@ class TradingResultDateSchema(BaseModel):
 
     date: datetime
 
-    # def formatted_date(self):
-    #     """Возвращает дату в стандартизированном формате."""
-    #     return self.date.strftime("%Y-%m-%d")
-
 
 class TradingResultSchema(TradingResultDateSchema):
-
     exchange_product_id: str
     exchange_product_name: str
     oil_id: str
@@ -24,4 +19,3 @@ class TradingResultSchema(TradingResultDateSchema):
     volume: int
     total: int
     count: int
-

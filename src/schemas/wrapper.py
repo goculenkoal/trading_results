@@ -1,7 +1,5 @@
-from typing import List
-
 from pydantic import BaseModel
-from typing import Sequence
+from collections.abc import Sequence
 
 from src.schemas.schemas import TradingResultSchema, TradingResultDateSchema
 

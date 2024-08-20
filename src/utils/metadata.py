@@ -1,7 +1,7 @@
 TAG_METADATA = [
     {
         "name": "Trading Results",
-        "description": "Operations with trading results"
+        "description": "Operations with trading results",
     },
 ]
 

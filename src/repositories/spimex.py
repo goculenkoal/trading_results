@@ -3,5 +3,6 @@ from src.utils.repository import SqlAlchemyRepository
 
 
 class SpimexRepository(SqlAlchemyRepository):
-    """класс для работы репозитория чз модель"""
+    """класс для работы репозитория чз модель."""
+
     model = SpimexTradingResults

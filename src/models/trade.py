@@ -7,7 +7,7 @@ from src.models.base import BaseModel
 
 
 class SpimexTradingResults(BaseModel):
-    __tablename__ = 'spimex_trading_results'
+    __tablename__ = "spimex_trading_results"
 
     exchange_product_id: Mapped[str]
     exchange_product_name: Mapped[str]
@@ -21,10 +21,10 @@ class SpimexTradingResults(BaseModel):
     date: Mapped[datetime] = mapped_column(DateTime())
     created_on: Mapped[TIMESTAMP] = mapped_column(
         TIMESTAMP,
-        default=func.now(timezone=True)
+        default=func.now(timezone=True),
     )
     updated_on: Mapped[TIMESTAMP] = mapped_column(
         TIMESTAMP,
         default=func.now(timezone=True),
-        onupdate=func.now(timezone=True)
+        onupdate=func.now(timezone=True),
     )

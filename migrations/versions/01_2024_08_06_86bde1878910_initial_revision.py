@@ -1,3 +1,4 @@
+# ruff: noqa: UP007, Q000, UP035, W291, D400, D415,
 """Initial revision
 
 Revision ID: 86bde1878910
@@ -6,7 +7,7 @@ Create Date: 2024-08-06 18:07:25.636248
 
 """
 from typing import Sequence, Union
-
+# ruff: noqa: F401
 from alembic import op
 import sqlalchemy as sa
 

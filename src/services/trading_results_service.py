@@ -1,28 +1,51 @@
-from typing import Any, Sequence, Optional
+# ruff: noqa: PLR0917,PLR0913
+from datetime import datetime
+from typing import Any
+
 from src.utils.unit_of_work import UnitOfWork
 
 
 class TradingResultsService:
-    async def get_by_query_all_limit(self, uow: UnitOfWork, limit: int) -> Optional[any]:
+    @staticmethod
+    async def get_by_query_all_limit(uow: UnitOfWork, limit: int) -> Any | None:
         async with uow:
-            result = await uow.trading_results.get_by_query_all_limit(limit=limit)
+            return await uow.trading_results.get_by_query_all_limit(limit=limit)
 
-            return result
-
-    async def get_by_query_dates(self, uow: UnitOfWork, limit: int) -> Optional[Any]:
+    @staticmethod
+    async def get_by_query_dates(uow: UnitOfWork, limit: int) -> Any | None:
         async with uow:
-            result = await uow.trading_results.get_by_query_dates(limit=limit)
+            return await uow.trading_results.get_by_query_dates(limit=limit)
 
-            return result
-
-    async def get_by_query_all(self, uow: UnitOfWork, oil_id: str) -> Optional[Any]:
+    @staticmethod
+    async def get_by_query_all(
+            uow: UnitOfWork,
+            oil_id: str,
+            delivery_type_id: str,
+            delivery_basis_id: str,
+    ) -> Any | None:
         async with uow:
-            result = await uow.trading_results.get_by_query_all(oil_id=oil_id)
+            return await uow.trading_results.get_by_query_all(
+                oil_id=oil_id,
+                delivery_type_id=delivery_type_id,
+                delivery_basis_id=delivery_basis_id,
+            )
 
-            return result
+    @staticmethod
+    async def get_by_query_all_dynamics(
+            uow: UnitOfWork,
+            oil_id: str,
+            delivery_type_id: str,
+            delivery_basis_id: str,
+            start_date: datetime,
+            end_date: datetime,
 
-    async def get_by_query_all_dynamics(self, uow: UnitOfWork, oil_id: str) -> Optional[Any]:
+    ) -> Any | None:
+
         async with uow:
-            result = await uow.trading_results.get_by_query_all_dynamics(oil_id=oil_id)
-
-            return result
+            return await uow.trading_results.get_by_query_all_dynamics(
+                oil_id=oil_id,
+                delivery_type_id=delivery_type_id,
+                delivery_basis_id=delivery_basis_id,
+                start_date=start_date,
+                end_date=end_date,
+            )

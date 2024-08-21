@@ -70,7 +70,7 @@ async def get_trading_results(
         delivery_basis_id=delivery_basis_id,
     )
 
-    return TradingResultWrapper(status=200, payload=trades)
+    return TradingResultWrapper(payload=trades)
 
 
 @router.get("/dynamics")
@@ -94,4 +94,4 @@ async def get_dynamics(
 
     )
 
-    return TradingResultWrapper(status=200, payload=trades)
+    return TradingResultWrapper(payload=trades)

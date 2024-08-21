@@ -23,7 +23,7 @@ __pycache__/
 *.sublime-workspace
 
 # Папки тестирования
-tests/__pycache__/
+../../Downloads/pytest_course-master/tests/tests1/__pycache__/
 tests/*.pyc
 tests/*.coverage
 *.coverage
